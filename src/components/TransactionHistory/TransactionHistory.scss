@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.transaction-history {
+  width: 80%;
+
+  thead {
+    background-color: #00bcd5;
+
+    th {
+      text-transform: uppercase;
+      font-family: sans-serif;
+      color: #fff;
+      padding: 10px;
+    }
+  }
+
+  tbody {
+    tr:nth-child(2n + 2) {
+      background-color: #ecf1f4;
+    }
+    th {
+      text-transform: capitalize;
+      font-family: sans-serif;
+      color: #7c8287;
+      padding: 10px;
+    }
+  }
+}
