@@ -5,7 +5,7 @@ import './FeedbackButton.scss';
 function FeedbackButton({ name, handleClick }) {
   return (
     <>
-    <button className="feedButton" name={name} onClick={handleClick}>{name}</button>
+    <button className="feedButton" onClick={() => handleClick(name)}>{name}</button>
     </>
   );
 }

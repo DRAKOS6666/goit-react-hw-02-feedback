@@ -1,5 +1,5 @@
 import React from 'react';
-import FeedbackButton from '../FeedbackButton/FeedbackButton';
+import FeedbackButton from './FeedbackButton/FeedbackButton';
 import PropTypes from 'prop-types';
 import './FeedbackOption.scss';
 
@@ -14,7 +14,7 @@ function FeedbackOptions({ options, onLeaveFeedback }) {
 }
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.string),
+  options: PropTypes.arrayOf(PropTypes.string.isRequired),
   onLeaveFeedback: PropTypes.func.isRequired,
 };
 

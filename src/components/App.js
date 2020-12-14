@@ -1,29 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import FeedbackOptions from './components/FeedbackOptions/FeedbackOptions';
-import Statistics from './components/Statistics/Statistics';
-import Notification from './components/Notification/Notification';
-import Section from './components/Section/Section';
+import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
+import Statistics from './Statistics/Statistics';
+import Notification from './Notification/Notification';
+import Section from './Section/Section';
 
 export default class App extends Component {
-  static defaultProps = { good: 0, neutral: 0, bad: 0 };
-  static propTypes = {
-    good: PropTypes.number,
-    neutral: PropTypes.number,
-    bad: PropTypes.number,
-  };
-
+  
   state = {
     good: 0,
     neutral: 0,
     bad: 0,
   };
 
-  handleBtn = event => {
-    const btnName = event.target.name;
+  handleBtn = name => {
     this.setState(prevState => {
       return {
-        [btnName]: (prevState[btnName] + 1),
+        [name]: (prevState[name] + 1),
       };
     });
   };
@@ -37,7 +30,7 @@ export default class App extends Component {
   render() {
     const { good, neutral, bad } = this.state;
     const total = this.countTotalFeedback();
-    const positivePercentage = Math.round((good * 100) / total) + '%';
+    const positivePercentage = Math.round((good * 100) / total);
     return (
       <>
         <Section title="Please leave feedback" >
@@ -48,7 +41,7 @@ export default class App extends Component {
         </Section>
 
         <Section title="Statistics" >
-          {this.countTotalFeedback() > 0 ? (
+          {total > 0 ? (
             <Statistics
               good={good}
               neutral={neutral}
